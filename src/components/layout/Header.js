@@ -1,45 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <header className="header">
-      <div className="container header-container">
-        <Link to="/" className="logo">
-          <h1>ADTA</h1>
-        </Link>
-
-        <button className="menu-toggle" onClick={toggleMenu}>
-          <span className="menu-icon"></span>
-        </button>
-
-        <nav className={`main-nav ${isMenuOpen ? 'open' : ''}`}>
-          <ul className="nav-list">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">Accueil</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/browse-artists" className="nav-link">Découvrir des Artistes</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/about" className="nav-link">À Propos</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contact" className="nav-link">Contact</Link>
-            </li>
+      <div className="container">
+        <div className="logo">
+          <Link to="/">Agence Digitale de Talent Artistique</Link>
+        </div>
+        <nav className="navigation">
+          <ul>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/artistes">Artistes</Link></li>
+            <li><Link to="/evenements">Événements</Link></li>
+            <li><Link to="/connexion">Connexion</Link></li>
+            <li><Link to="/inscription" className="btn-register">Inscription</Link></li>
           </ul>
-
-          <div className="auth-buttons">
-            <Link to="/login" className="btn btn-secondary">Connexion</Link>
-            <Link to="/register" className="btn btn-primary">Inscription</Link>
-          </div>
         </nav>
       </div>
     </header>
